@@ -36,7 +36,7 @@ import { useStore } from 'vuex'
 // 表单对象
 const formData = reactive({
   username: 'super-admin',
-  password: 12356
+  password: ''
 })
 // 密码自定义校验规则函数
 const validatePassword = (rules, value, callback) => {
@@ -49,7 +49,7 @@ const rules = {
   ],
   password: [
     { required: true, message: '密码不能为空', trigger: 'blur' },
-    { validator: validatePassword }
+    { validator: validatePassword, trigger: 'blur' }
   ]
 }
 // 记住我 (默认 true)
@@ -67,8 +67,7 @@ const submitForm = (value) => {
     }
     // 聚义登陆操作
     console.log('登陆操作')
-    store.dispatch('user/loginAction', formData.value)
-    console.log()
+    store.dispatch('user/loginAction', formData)
   })
 }
 </script>

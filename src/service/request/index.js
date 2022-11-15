@@ -4,9 +4,16 @@ import { timeout } from './config'
 
 class HyRequest {
   constructor (baseURL, timeout) {
+    console.log(baseURL)
     this.instance = axios.create({
       baseURL,
       timeout
+    })
+    this.instance.interceptors.request.use((config) => {
+      config.headers.icode = 'C6609ED5EA4D46CA'
+      return config
+    }, (err) => {
+      return Promise.reject(err)
     })
   }
 
