@@ -4,6 +4,9 @@ export default createStore({
   state: {
   },
   getters: {
+    token (state) {
+      return state.user.token
+    }
   },
   mutations: {
   },
