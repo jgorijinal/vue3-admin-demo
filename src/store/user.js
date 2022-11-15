@@ -2,8 +2,8 @@
 import { login } from '@/service/modules/user'
 import md5 from 'md5'
 import storage from '@/utils/storage'
-
-const TOKEN = 'token'
+import router from '@/router'
+import { TOKEN } from '@/constant'
 export default {
   namespaced: true,
   state () {
@@ -20,11 +20,14 @@ export default {
     }
   },
   actions: {
-    async loginAction (context, formData) {
+    loginAction (context, formData) {
       const { username, password } = formData
-      const res = await login({ username, password: md5(password) })
-      // 提交 mutation 对 token 进行处理
-      context.commit('setToken', res.data.token)
+      login({ username, password: md5(password) }).then(res => {
+        // 提交 mutation 对 token 进行处理
+        context.commit('setToken', res.token)
+        // 登录后跳转
+        router.push('/')
+      })
     }
   },
   modules: {
