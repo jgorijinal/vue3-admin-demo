@@ -24,8 +24,8 @@
       <el-button type="primary" @click="submitForm"
         >登录</el-button
       >
-    </el-form-item>
-  </el-form>
+      </el-form-item>
+    </el-form>
     </div>
   </div>
 </template>

@@ -1,7 +1,10 @@
 import { createStore } from 'vuex'
-import userModule from './user'
+
 export default createStore({
-  state: {
+  state: () => {
+    return {
+      token: '123456'
+    }
   },
   getters: {
   },
@@ -10,6 +13,5 @@ export default createStore({
   actions: {
   },
   modules: {
-    user: userModule
   }
 })
