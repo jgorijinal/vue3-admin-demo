@@ -5,7 +5,7 @@ class Storage {
     }
   }
 
-  getItem(key) {
+  getItem (key) {
     let value = window.localStorage.getItem(key)
     if (value) {
       value = JSON.parse(value)
