@@ -77,7 +77,7 @@ const submitForm = (value) => {
   width:100%;
   position: relative;
 .login-form {
-  width:400px;
+  width:450px;
   position: absolute;
   left:0;
   right:0;

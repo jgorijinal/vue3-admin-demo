@@ -1,6 +1,7 @@
 // 封账 axios
 import axios from 'axios'
 import { timeout } from './config'
+import { ElMessage } from 'element-plus'
 
 class HyRequest {
   constructor (baseURL, timeout) {
@@ -9,9 +10,22 @@ class HyRequest {
       baseURL,
       timeout
     })
+    // 请求拦截器
     this.instance.interceptors.request.use((config) => {
       config.headers.icode = 'C6609ED5EA4D46CA'
       return config
+    }, (err) => {
+      return Promise.reject(err)
+    })
+    // 响应拦截器
+    this.instance.interceptors.response.use((res) => {
+      const { success, message, data } = res.data
+      if (success) {
+        return data
+      } else {
+        ElMessage.error(message)
+        return Promise.reject(new Error(message))
+      }
     }, (err) => {
       return Promise.reject(err)
     })
@@ -20,7 +34,7 @@ class HyRequest {
   request (config) {
     return new Promise((resolve, reject) => {
       this.instance.request(config).then(res => {
-        resolve(res.data)
+        resolve(res)
       }).catch(err => {
         reject(err)
       })
