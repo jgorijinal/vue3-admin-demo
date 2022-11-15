@@ -31,6 +31,8 @@
 </template>
 <script setup>
 import { reactive, ref } from 'vue'
+import { useStore } from 'vuex'
+
 // 表单对象
 const formData = reactive({
   username: 'super-admin',
@@ -54,6 +56,7 @@ const rules = {
 const rememberMe = ref(false)
 // 表单实例
 const formRef = ref()
+const store = useStore()
 const submitForm = (value) => {
   formRef.value.validate((isOk) => {
     if (!isOk) return
@@ -64,6 +67,8 @@ const submitForm = (value) => {
     }
     // 聚义登陆操作
     console.log('登陆操作')
+    store.dispatch('user/loginAction', formData.value)
+    console.log()
   })
 }
 </script>

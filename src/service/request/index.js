@@ -29,4 +29,4 @@ class HyRequest {
   }
 }
 
-export default HyRequest(process.env.VUE_APP_BASE_API, timeout)
+export default new HyRequest(process.env.VUE_APP_BASE_API, timeout)

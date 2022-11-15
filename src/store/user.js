@@ -1,8 +1,9 @@
-import { createStore } from 'vuex'
-import storage from '@/utils/storage'
+// import storage from '@/utils/storage'
+import { login } from '@/service/modules/user'
 
-export default createStore({
-  state: () => {
+export default {
+  namespaced: true,
+  state () {
     return {
       token: '123456'
     }
@@ -12,7 +13,11 @@ export default createStore({
   mutations: {
   },
   actions: {
+    async loginAction (formData) {
+      const res = await login(formData)
+      console.log(res)
+    }
   },
   modules: {
   }
-})
+}
