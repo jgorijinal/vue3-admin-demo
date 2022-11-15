@@ -5,5 +5,6 @@ import store from './store'
 import 'normalize.css'
 import '@/assets/css/index.css'
 import 'element-plus/dist/index.css'
+import './permission'
 
 createApp(App).use(store).use(router).mount('#app')
