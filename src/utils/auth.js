@@ -6,13 +6,13 @@
 import storage from './storage'
 
 const TIME_STAMP = 'important-timestamp'
-const TOKEN_TIMEOUT_VALUE = 3000
+const TOKEN_TIMEOUT_VALUE = 6000
 // 保存当前时间戳
-export function setTimestamp() {
+export function setTimestamp () {
   storage.setItem(TIME_STAMP, Date.now())
 }
 
-function getTimeStamp() {
+function getTimeStamp () {
   return storage.getItem(TIME_STAMP)
 }
 // 判断 token 失效没有 : 失效了 返回 true , 美食小 返回 false

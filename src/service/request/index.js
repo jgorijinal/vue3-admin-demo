@@ -3,6 +3,7 @@ import axios from 'axios'
 import { timeout } from './config'
 import { ElMessage } from 'element-plus'
 import store from '@/store'
+import { isTokenLoseEfficacy } from '@/utils/auth'
 
 class HyRequest {
   constructor (baseURL, timeout) {
@@ -14,7 +15,13 @@ class HyRequest {
     // 请求拦截器
     this.instance.interceptors.request.use((config) => {
       config.headers.icode = 'C6609ED5EA4D46CA'
-      config.headers.authorization = `Bearer ${store.getters.token}`
+      if (store.getters.token) {
+        if (isTokenLoseEfficacy()) {
+          store.dispatch('user/logoutAction')
+          ElMessage.error('密码过期, 请重新登录')
+        }
+        config.headers.authorization = `Bearer ${store.getters.token}`
+      }
       return config
     }, (err) => {
       return Promise.reject(err)

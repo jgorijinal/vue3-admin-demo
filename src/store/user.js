@@ -3,6 +3,7 @@ import md5 from 'md5'
 import storage from '@/utils/storage'
 import router from '@/router'
 import { TOKEN } from '@/constant'
+import { setTimestamp } from '@/utils/auth'
 import { login, getUserInfo } from '@/service/modules/user'
 import { ElMessage } from 'element-plus'
 
@@ -32,6 +33,8 @@ export default {
       login({ username, password: md5(password) }).then(res => {
         // 提交 mutation 对 token 进行处理
         context.commit('setToken', res.token)
+        // 登录的时候保存时间戳
+        setTimestamp()
         // 登录后跳转
         ElMessage.success('登录成功')
         router.push('/')
@@ -48,7 +51,7 @@ export default {
     logoutAction  (context) {
       context.commit('setToken', '')
       context.commit('setUserInfo', {})
-      storage.removeItem(TOKEN)
+      storage.clear()
       // TODO : 清除掉权限相关的数据
       router.push('/login')
     }
