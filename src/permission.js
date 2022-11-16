@@ -10,7 +10,9 @@ router.beforeEach((to, from, next) => {
       next('/')
     } else {
       // 正常通行
-      store.dispatch('user/getUserInfoAction')
+      if (!store.getters.userInfo) {
+        store.dispatch('user/getUserInfoAction')
+      }
       next()
     }
   } else {
