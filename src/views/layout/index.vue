@@ -3,7 +3,12 @@
     <el-container class="container">
       <el-aside width="200px">Aside</el-aside>
       <el-container>
-        <el-header>Header</el-header>
+        <el-header>
+          <div class="header">
+            123
+            <!--TODO 退出登录-->
+          </div>
+        </el-header>
         <el-main>
           <router-view></router-view>
         </el-main>
@@ -19,6 +24,10 @@
   height: 100%;
   .container {
     height: 100%;
+    .header {
+      background-color: bisque;
+      line-height:60px;
+    }
   }
 }
 </style>

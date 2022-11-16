@@ -28,6 +28,9 @@ export default {
         // 登录后跳转
         router.push('/')
       })
+    },
+    getUserInfoAction () {
+      
     }
   },
   modules: {

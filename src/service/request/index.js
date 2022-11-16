@@ -2,6 +2,7 @@
 import axios from 'axios'
 import { timeout } from './config'
 import { ElMessage } from 'element-plus'
+import store from '@/store'
 
 class HyRequest {
   constructor (baseURL, timeout) {
@@ -13,6 +14,7 @@ class HyRequest {
     // 请求拦截器
     this.instance.interceptors.request.use((config) => {
       config.headers.icode = 'C6609ED5EA4D46CA'
+      config.headers.authorization = `Bearer ${store.getters.token}`
       return config
     }, (err) => {
       return Promise.reject(err)
