@@ -38,6 +38,7 @@ export default {
     async getUserInfoAction (context) {
       const res = await getUserInfo()
       context.commit('setUserInfo', res)
+      console.log(123456)
       // 这里返回了数据, 因为权限哪里会用到 用户信息里面的权限数据
       return res
     }
