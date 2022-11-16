@@ -36,7 +36,10 @@ class HyRequest {
         return Promise.reject(new Error(message))
       }
     }, (err) => {
-      // 提示
+      if (err.response && err.response.data && err.response.data.code === 401) {
+        store.dispatch('user/logoutAction')
+        ElMessage.error('密码已过期, 请重新登录')
+      }
       return Promise.reject(err)
     })
   }
