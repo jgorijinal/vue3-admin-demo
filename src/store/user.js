@@ -4,6 +4,8 @@ import storage from '@/utils/storage'
 import router from '@/router'
 import { TOKEN } from '@/constant'
 import { login, getUserInfo } from '@/service/modules/user'
+import { ElMessage } from 'element-plus'
+
 export default {
   namespaced: true,
   state () {
@@ -31,6 +33,7 @@ export default {
         // 提交 mutation 对 token 进行处理
         context.commit('setToken', res.token)
         // 登录后跳转
+        ElMessage.success('登录成功')
         router.push('/')
       })
     },
@@ -38,7 +41,6 @@ export default {
     async getUserInfoAction (context) {
       const res = await getUserInfo()
       context.commit('setUserInfo', res)
-      console.log(123456)
       // 这里返回了数据, 因为权限哪里会用到 用户信息里面的权限数据
       return res
     }

@@ -23,7 +23,6 @@ class HyRequest {
     this.instance.interceptors.response.use((res) => {
       const { success, message, data } = res.data
       if (success) {
-        ElMessage.success(message)
         return data
       } else {
         ElMessage.error(message)
