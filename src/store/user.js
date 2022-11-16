@@ -45,9 +45,10 @@ export default {
       return res
     },
     // 退出登录
-    logout (context) {
+    logoutAction  (context) {
       context.commit('setToken', '')
       context.commit('setUserInfo', {})
+      storage.removeItem(TOKEN)
       // TODO : 清除掉权限相关的数据
       router.push('/login')
     }

@@ -30,8 +30,11 @@
 </template>
 <script setup>
 import { ArrowDown } from '@element-plus/icons-vue'
+import { useStore } from 'vuex'
+const store = useStore()
+// 点击 退出登录
 const logoutClick = () => {
-  console.log('logout')
+  store.dispatch('user/logoutAction')
 }
 </script>
 <style lang="less" scoped>
