@@ -43,6 +43,13 @@ export default {
       context.commit('setUserInfo', res)
       // 这里返回了数据, 因为权限哪里会用到 用户信息里面的权限数据
       return res
+    },
+    // 退出登录
+    logout (context) {
+      context.commit('setToken', '')
+      context.commit('setUserInfo', {})
+      // TODO : 清除掉权限相关的数据
+      router.push('/login')
     }
   },
   modules: {
