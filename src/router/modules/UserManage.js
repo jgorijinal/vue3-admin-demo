@@ -2,6 +2,7 @@ import layout from '@/views/layout/index.vue'
 export default {
   path: '/user',
   name: 'userManage',
+  redirect: '/user/manage',
   component: layout,
   children: [
     {
