@@ -19,13 +19,17 @@ const asyncRoutes = [
 const publicRoutes = [
   {
     path: '/',
-    redirect: '/home',
+    redirect: '/profile',
     component: layout,
     children: [
       {
-        path: 'home',
-        name: 'home',
-        component: () => import('@/views/home/index.vue')
+        path: '/profile',
+        name: 'profile',
+        meta: {
+          title: 'profile',
+          icon: 'place'
+        },
+        component: () => import('@/views/profile/index.vue')
       }
     ]
   },
