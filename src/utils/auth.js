@@ -6,7 +6,7 @@
 import storage from './storage'
 
 const TIME_STAMP = 'important-timestamp'
-const TOKEN_TIMEOUT_VALUE = 1000 * 60 * 3
+const TOKEN_TIMEOUT_VALUE = 1000 * 60 * 60 * 3
 // 保存当前时间戳
 export function setTimestamp () {
   storage.setItem(TIME_STAMP, Date.now())

@@ -65,8 +65,7 @@ const submitForm = (value) => {
     } else {
       // 不记住我
     }
-    // 聚义登陆操作
-    console.log('登陆操作')
+    // 做登陆操作
     store.dispatch('user/loginAction', formData)
   })
 }
