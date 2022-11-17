@@ -8,7 +8,7 @@ import ArticleRanking from './modules/ArticleRanking'
 import ArticleCreate from './modules/ArticleCreate'
 
 // 私有路由表
-const asyncRoutes = [
+export const asyncRoutes = [
   UserManage,
   RoleList,
   PermissionList,
@@ -16,7 +16,7 @@ const asyncRoutes = [
   ArticleCreate
 ]
 // 静态路由表
-const publicRoutes = [
+export const publicRoutes = [
   {
     path: '/',
     redirect: '/profile',
@@ -42,7 +42,7 @@ const publicRoutes = [
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes: [...asyncRoutes, ...publicRoutes]
+  routes: [...publicRoutes]
 })
 
 export default router

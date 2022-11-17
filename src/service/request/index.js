@@ -7,7 +7,6 @@ import { isTokenLoseEfficacy } from '@/utils/auth'
 
 class HyRequest {
   constructor (baseURL, timeout) {
-    console.log(baseURL)
     this.instance = axios.create({
       baseURL,
       timeout

@@ -4,14 +4,22 @@ import store from '@/store'
 
 const whiteList = ['/login']
 
-router.beforeEach((to, from, next) => {
+router.beforeEach(async (to, from, next) => {
   if (store.getters.token) {
     if (to.path === '/login') {
       next('/')
     } else {
       // 正常通行
       if (JSON.stringify(store.getters.userInfo) === '{}') {
-        store.dispatch('user/getUserInfoAction')
+        // 获取用户资料
+        const userInfo = await store.dispatch('user/getUserInfoAction')
+        console.log(userInfo.permission.menus)
+
+        const filterRoutes = await store.dispatch('permission/filterRoutes', userInfo.permission.menus)
+        console.log(filterRoutes)
+        filterRoutes.forEach(route => {
+          router.addRoute(route)
+        })
       }
       next()
     }
