@@ -4,6 +4,10 @@ export default {
   name: 'userManage',
   redirect: '/user/manage',
   component: layout,
+  meta: {
+    title: 'user',
+    icon: 'user'
+  },
   children: [
     {
       path: '/user/manage',

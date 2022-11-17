@@ -5,6 +5,10 @@ export default {
   redirect: '/user/manage',
   name: 'permissionList',
   component: layout,
+  meta: {
+    title: 'user',
+    icon: 'user'
+  },
   children: [
     {
       path: '/user/permission',

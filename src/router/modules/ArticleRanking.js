@@ -4,6 +4,7 @@ export default {
   name: 'articleRanking',
   redirect: '/article/ranking',
   component: layout,
+  meta: { title: 'article', icon: 'document' },
   children: [
     {
       path: '/article/ranking',
