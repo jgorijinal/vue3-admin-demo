@@ -1,4 +1,4 @@
-import layout from '@/layout'
+import layout from '@/views/layout/index.vue'
 
 export default {
   path: '/user',

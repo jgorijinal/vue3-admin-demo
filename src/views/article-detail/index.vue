@@ -1,6 +1,6 @@
 <template>
   <div class="">
-
+    article-detail
   </div>
 </template>
 <script setup>
@@ -9,5 +9,3 @@
 <style lang="less" scoped>
 
 </style>
-
-

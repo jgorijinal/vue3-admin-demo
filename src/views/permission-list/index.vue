@@ -1,6 +1,6 @@
 <template>
   <div class="">
-
+    permission-list
   </div>
 </template>
 <script setup>

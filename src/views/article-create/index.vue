@@ -1,6 +1,6 @@
 <template>
   <div class="">
-
+    article-create
   </div>
 </template>
 <script setup>
