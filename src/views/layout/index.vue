@@ -36,6 +36,7 @@ const store = useStore()
 const logoutClick = () => {
   store.dispatch('user/logoutAction')
 }
+
 </script>
 <style lang="less" scoped>
 .common-layout {

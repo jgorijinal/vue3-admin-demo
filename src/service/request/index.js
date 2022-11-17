@@ -18,7 +18,6 @@ class HyRequest {
       if (store.getters.token) {
         if (isTokenLoseEfficacy()) {
           store.dispatch('user/logoutAction')
-          ElMessage.error('密码过期, 请重新登录')
         }
         config.headers.authorization = `Bearer ${store.getters.token}`
       }
