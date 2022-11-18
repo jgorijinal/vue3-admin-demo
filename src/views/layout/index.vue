@@ -44,6 +44,8 @@
                 </el-dropdown-menu>
               </template>
             </el-dropdown>
+            <!--选择语言-->
+            <lang-select></lang-select>
           </div>
         </el-header>
         <el-main>
@@ -58,6 +60,7 @@ import { ArrowDown } from '@element-plus/icons-vue'
 import { useStore } from 'vuex'
 import { computed, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
+import langSelect from '@/components/langSelect.vue'
 const store = useStore()
 // 点击 退出登出
 const logoutClick = () => {
@@ -89,6 +92,9 @@ watch(route, (newRoute) => {
 }, { immediate: true })
 </script>
 <style lang="less" scoped>
+.header{
+display: flex;
+}
 .common-layout {
   height: 100%;
   .container {
