@@ -1,5 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import layout from '@/views/layout/index.vue'
+import store from '@/store'
 // 私有路由
 import UserManage from './modules/UserManage'
 import RoleList from './modules/RoleList'
@@ -39,6 +40,15 @@ export const publicRoutes = [
     component: () => import('@/views/login/index.vue')
   }
 ]
+// 删除权限路由
+export function resetRouter () {
+  const menus = store.state.user.userInfo.permission.menus
+  if (menus) {
+    menus.forEach(menu => {
+      router.removeRoute(menu)
+    })
+  }
+}
 
 const router = createRouter({
   history: createWebHashHistory(),

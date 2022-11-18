@@ -1,7 +1,7 @@
 // import storage from '@/utils/storage'
 import md5 from 'md5'
 import storage from '@/utils/storage'
-import router from '@/router'
+import router, { resetRouter } from '@/router'
 import { TOKEN } from '@/constant'
 import { setTimestamp } from '@/utils/auth'
 import { login, getUserInfo } from '@/service/modules/user'
@@ -53,6 +53,7 @@ export default {
       context.commit('setUserInfo', {})
       storage.clear()
       // TODO : 清除掉权限相关的数据
+      resetRouter()
       router.push('/login')
     }
   },
