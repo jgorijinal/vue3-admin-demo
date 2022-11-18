@@ -3,7 +3,7 @@
 // 创建语言变量
 // 创建 i18n 实例
 import { createI18n } from 'vue-i18n'
-
+import store from '@/store'
 const messages = {
   en: {
     msg: {
@@ -17,7 +17,7 @@ const messages = {
   }
 }
 
-const locale = 'zh'
+const locale = store.state.app.lang
 
 const i18n = createI18n({
   // 使用 Composition API 模式，则需要将其设置为false
